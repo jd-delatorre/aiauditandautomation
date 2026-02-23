@@ -31,9 +31,9 @@ All tasks completed on February 23, 2026.
 
 ### Domain & Hosting
 - [x] Check domain availability — all three domains confirmed available (Feb 23, 2026)
-- [ ] Register domains (Cloudflare Registrar recommended — at-cost pricing, no markup, no renewal hikes)
+- [x] Register domains — purchased Feb 23, 2026
 
-  **Domains to Register:**
+  **Registered Domains:**
 
   | Domain | Purpose | Registrar | Annual Cost | Notes |
   |--------|---------|-----------|-------------|-------|
@@ -41,39 +41,24 @@ All tasks completed on February 23, 2026.
   | **njaiautomation.ai** | Brand reinforcer — signals AI expertise | Cloudflare | ~$70/yr | 2-year minimum required ($140 upfront) |
   | **njaiaudit.com** | Campaign domain — audit offering, ads, networking | Cloudflare | ~$10.44/yr | At-cost, no markup |
 
-  **Estimated Total Year 1: ~$161** ($140 for .ai 2-year min + ~$21 for two .com domains)
   **Estimated Annual Renewal: ~$91/yr** ($70 .ai + ~$21 for two .com domains)
 
-  **Registrar Price Comparison (.ai — 2-year minimum):**
-
-  | Registrar | 2-Year Cost | Renewal (2yr) | WHOIS Privacy | Notes |
-  |-----------|-------------|---------------|---------------|-------|
-  | Spaceship | $137.96 | $137.96 | Free | Cheapest, owned by Namecheap |
-  | **Cloudflare** | **$140.00** | **$140.00** | **Free** | **At-cost, best long-term value** |
-  | Porkbun | $144.80 | $144.80 | Free | Good support, quirky brand |
-  | Namecheap | $159.96 | $179.96 | Free | Price increase Mar 5, 2026 ($92.98/yr reg, $114.98/yr renewal) |
-  | GoDaddy | $194.98 | $289.98 | Free | Most expensive, avoid |
-
-  **Why Cloudflare:** At-cost pricing (no markup ever), same price on registration and renewal, free WHOIS privacy, free DNS/CDN/SSL, no upsells. Best long-term value.
-
-  **ACTION:** Register before March 5, 2026 — Namecheap/.ai registry price increase takes effect that date. Cloudflare pricing may also adjust.
-
-- [ ] Deploy landing page to Vercel
-- [ ] Set up business email — john@njaiautomation.com
+- [x] Deploy landing page to Vercel — deployed Feb 23, 2026
+- [x] Set up business email — john@njaiautomation.com — configured Feb 23, 2026
 
 ### Integrations
-- [ ] Set up Calendly with "Book AI Audit" as primary booking type
-- [ ] Set up Stripe account (if not already)
-- [ ] Create Stripe products:
+- [x] Set up Calendly with "Book AI Audit" as primary booking type — configured Feb 23, 2026
+- [x] Set up Stripe account — configured Feb 23, 2026
+- [x] Create Stripe products — completed Feb 23, 2026:
   - AI Automation Audit ($500)
-  - Basic Implementation ($1,500)
+  - Basic Installation ($1,500)
   - Professional Implementation ($3,000)
-  - Enterprise Implementation ($5,000)
+  - Enterprise — manual invoices (custom quotes, no Stripe product needed)
   - Essentials Retainer ($250/mo)
   - Professional Retainer ($500/mo)
   - Premium Retainer ($1,000/mo)
-- [ ] Add Stripe checkout links to website
-- [ ] Fix all placeholder links (Calendly, email, etc.)
+- [x] Add Stripe checkout links to website — completed Feb 23, 2026
+- [x] Fix all placeholder links (Calendly, email, etc.) — completed Feb 23, 2026
 
 ### Business Registration
 - [ ] Register LLC (NJ Division of Revenue — can do online)
