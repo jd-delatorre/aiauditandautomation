@@ -1,0 +1,11 @@
+{
+  "name": "nj-ai-automation",
+  "version": "1.0.0",
+  "description": "Landing page for NJ AI Automation - AI Automation Audits & Implementation",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  },
+  "author": "John De La Torre",
+  "license": "MIT"
+}

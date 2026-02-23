@@ -1,0 +1,28 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="300" fill="#2563eb" rx="40"/>
+  
+  <!-- Stylized "AI" monogram with circuit/automation feel -->
+  <!-- The "A" shape -->
+  <path d="M90 220 L150 60 L210 220" 
+        stroke="white" 
+        stroke-width="24" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        fill="none"/>
+  
+  <!-- Crossbar of A -->
+  <line x1="110" y1="165" x2="190" y2="165" 
+        stroke="white" 
+        stroke-width="20" 
+        stroke-linecap="round"/>
+  
+  <!-- The dot/node representing "I" and automation -->
+  <circle cx="210" cy="80" r="24" fill="white"/>
+  
+  <!-- Connection line from A to dot (circuit feel) -->
+  <line x1="180" y1="100" x2="195" y2="85" 
+        stroke="white" 
+        stroke-width="8" 
+        stroke-linecap="round"/>
+</svg>

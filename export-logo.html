@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { margin: 0; padding: 20px; font-family: sans-serif; background: #1a1a1a; color: white; }
+    canvas { border: 1px solid #333; }
+    a { display: inline-block; margin-top: 16px; padding: 12px 24px; background: #2563eb; color: white; text-decoration: none; border-radius: 8px; }
+    a:hover { background: #1d4ed8; }
+  </style>
+</head>
+<body>
+  <h2>NJ AI Automation Logo</h2>
+  <canvas id="canvas" width="300" height="300"></canvas>
+  <br>
+  <a id="download" download="nj-ai-automation-logo.png">Download PNG (300x300)</a>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Background with rounded corners
+    const radius = 40;
+    ctx.beginPath();
+    ctx.moveTo(radius, 0);
+    ctx.lineTo(300 - radius, 0);
+    ctx.quadraticCurveTo(300, 0, 300, radius);
+    ctx.lineTo(300, 300 - radius);
+    ctx.quadraticCurveTo(300, 300, 300 - radius, 300);
+    ctx.lineTo(radius, 300);
+    ctx.quadraticCurveTo(0, 300, 0, 300 - radius);
+    ctx.lineTo(0, radius);
+    ctx.quadraticCurveTo(0, 0, radius, 0);
+    ctx.closePath();
+    ctx.fillStyle = '#2563eb';
+    ctx.fill();
+    
+    // "A" shape
+    ctx.beginPath();
+    ctx.moveTo(90, 220);
+    ctx.lineTo(150, 60);
+    ctx.lineTo(210, 220);
+    ctx.strokeStyle = 'white';
+    ctx.lineWidth = 24;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.stroke();
+    
+    // Crossbar
+    ctx.beginPath();
+    ctx.moveTo(110, 165);
+    ctx.lineTo(190, 165);
+    ctx.lineWidth = 20;
+    ctx.stroke();
+    
+    // Dot (the "I" / node)
+    ctx.beginPath();
+    ctx.arc(210, 80, 24, 0, Math.PI * 2);
+    ctx.fillStyle = 'white';
+    ctx.fill();
+    
+    // Connection line
+    ctx.beginPath();
+    ctx.moveTo(180, 100);
+    ctx.lineTo(195, 85);
+    ctx.lineWidth = 8;
+    ctx.stroke();
+    
+    // Set download link
+    document.getElementById('download').href = canvas.toDataURL('image/png');
+  </script>
+</body>
+</html>

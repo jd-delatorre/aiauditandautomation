@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "landing-page",
+      "runtimeExecutable": "/Users/johndelatorre/.nvm/versions/node/v20.20.0/bin/npx",
+      "runtimeArgs": ["serve", "/Users/johndelatorre/Downloads/jdworkspace/openclaw-services/landing-page"],
+      "port": 3000
+    }
+  ]
+}
