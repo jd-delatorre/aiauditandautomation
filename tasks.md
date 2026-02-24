@@ -1,7 +1,7 @@
 # NJ AI Automation - Tasks
 
 **Goal:** Launch AI Automation Audit services targeting $5k/month
-**Status:** Phase 1 complete — ready for Phase 2
+**Status:** Phase 2 nearly complete (LLC pending) — Phase 3 in progress
 
 ---
 
@@ -27,7 +27,7 @@ All tasks completed on February 23, 2026.
 
 ---
 
-## Phase 2: Ship It (Week 1-2) — UP NEXT
+## Phase 2: Ship It (Week 1-2) — NEARLY COMPLETE
 
 ### Domain & Hosting
 - [x] Check domain availability — all three domains confirmed available (Feb 23, 2026)
@@ -97,8 +97,16 @@ All tasks completed on February 23, 2026.
 - [ ] Optional: Have lawyer review (or use LegalZoom template)
 
 ### Marketing Materials
-- [ ] Create PDF one-pager — audit-focused leave-behind for networking
-- [ ] Create pricing sheet — audit + implementation tiers
+- [x] Create one-pager — `sales-assets/one-pager.html` (completed Feb 23, 2026)
+  - Branded single-page leave-behind for networking events
+  - Header with logo/contact, hero headline, 4-stat bar, what we do, industries served
+  - 4-step "How It Works" flow, $500 audit pricing highlight, footer CTA
+  - Print-optimized for letter-size (Save as PDF from Chrome)
+- [x] Create pricing sheet — `sales-assets/pricing-sheet.html` (completed Feb 23, 2026)
+  - Complete pricing reference: audit, 3 implementation tiers, 3 retainer plans
+  - Professional tier highlighted as "most popular"
+  - Retainer comparison table, 4 contextual notes
+  - Print-optimized for letter-size (Save as PDF from Chrome)
 
 ---
 
@@ -184,4 +192,4 @@ All tasks completed on February 23, 2026.
 ---
 
 *Created: February 2026*
-*Last updated: February 23, 2026*
+*Last updated: February 23, 2026 (marketing materials added)*

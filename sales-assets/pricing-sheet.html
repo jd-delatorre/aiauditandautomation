@@ -1,0 +1,581 @@
+<!--
+  NJ AI Automation - Pricing Sheet
+
+  Complete pricing reference for audit, implementation, and retainer tiers.
+  Print-optimized for single letter-size page.
+  Open in Chrome → File → Print → Save as PDF (check "Background graphics")
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NJ AI Automation — Pricing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #10b981;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --white: #ffffff;
+        }
+
+        @page {
+            size: letter;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            color: var(--secondary);
+            background: var(--white);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            width: 8.5in;
+            min-height: 11in;
+            max-height: 11in;
+            margin: 0 auto;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 24px 40px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .header-logo svg {
+            width: 42px;
+            height: 42px;
+        }
+
+        .header-text h1 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .header-text p {
+            font-size: 0.7rem;
+            opacity: 0.85;
+            font-weight: 500;
+        }
+
+        .header-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        /* ===== CONTENT ===== */
+        .content {
+            flex: 1;
+            padding: 20px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
+        }
+
+        /* ===== AUDIT SECTION ===== */
+        .audit-card {
+            background: var(--light);
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .audit-info h2 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 4px;
+        }
+
+        .audit-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 16px;
+            margin-top: 4px;
+        }
+
+        .audit-features span {
+            font-size: 0.68rem;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .audit-features span::before {
+            content: "\2713";
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.72rem;
+        }
+
+        .audit-price-box {
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .audit-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .audit-credit {
+            background: var(--accent);
+            color: white;
+            font-size: 0.55rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-top: 6px;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        /* ===== IMPLEMENTATION GRID ===== */
+        .impl-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .impl-card {
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .impl-card.featured {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 1px var(--primary);
+        }
+
+        .impl-header {
+            padding: 12px 16px 8px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .impl-card.featured .impl-header {
+            background: var(--primary);
+            color: white;
+            border-bottom-color: var(--primary);
+        }
+
+        .impl-tier {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 2px;
+        }
+
+        .impl-card.featured .impl-tier {
+            color: rgba(255,255,255,0.85);
+        }
+
+        .impl-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .impl-card.featured .impl-price {
+            color: white;
+        }
+
+        .impl-price-note {
+            font-size: 0.58rem;
+            color: var(--gray);
+        }
+
+        .impl-card.featured .impl-price-note {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .impl-body {
+            padding: 10px 16px 14px;
+            flex: 1;
+        }
+
+        .impl-body ul {
+            list-style: none;
+        }
+
+        .impl-body li {
+            font-size: 0.64rem;
+            padding: 2.5px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            line-height: 1.35;
+            color: #334155;
+        }
+
+        .impl-body li::before {
+            content: "\2713";
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.68rem;
+            margin-top: 0px;
+        }
+
+        .impl-best {
+            font-size: 0.58rem;
+            color: var(--gray);
+            font-style: italic;
+            margin-bottom: 6px;
+        }
+
+        /* ===== RETAINER TABLE ===== */
+        .retainer-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.68rem;
+        }
+
+        .retainer-table th {
+            background: var(--secondary);
+            color: white;
+            padding: 8px 14px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .retainer-table th:first-child {
+            border-radius: 6px 0 0 0;
+        }
+
+        .retainer-table th:last-child {
+            border-radius: 0 6px 0 0;
+        }
+
+        .retainer-table td {
+            padding: 8px 14px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .retainer-table tr:nth-child(even) td {
+            background: var(--light);
+        }
+
+        .retainer-plan {
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .retainer-price {
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* ===== NOTES ===== */
+        .notes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 24px;
+        }
+
+        .note {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            font-size: 0.62rem;
+            color: var(--gray);
+            line-height: 1.4;
+        }
+
+        .note-icon {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.7rem;
+            margin-top: -1px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--secondary);
+            color: white;
+            padding: 14px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-cta {
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .footer-cta span {
+            color: #93c5fd;
+        }
+
+        .footer-contact {
+            text-align: right;
+            font-size: 0.65rem;
+            line-height: 1.7;
+            opacity: 0.85;
+        }
+
+        .footer-contact a {
+            color: #93c5fd;
+            text-decoration: none;
+        }
+
+        /* ===== PRINT ===== */
+        @media print {
+            body { background: white; }
+            .page {
+                width: 100%;
+                min-height: 100vh;
+                max-height: 100vh;
+            }
+        }
+
+        /* ===== SCREEN PREVIEW ===== */
+        @media screen {
+            body {
+                background: #e2e8f0;
+                padding: 20px;
+            }
+            .page {
+                box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+                border-radius: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-left">
+                <div class="header-logo">
+                    <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="300" height="300" fill="#2563eb" rx="40"/>
+                        <path d="M90 220 L150 60 L210 220" stroke="white" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        <line x1="110" y1="165" x2="190" y2="165" stroke="white" stroke-width="20" stroke-linecap="round"/>
+                        <circle cx="210" cy="80" r="24" fill="white"/>
+                        <line x1="180" y1="100" x2="195" y2="85" stroke="white" stroke-width="8" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="header-text">
+                    <h1>NJ AI Automation</h1>
+                    <p>AI Automation Audits & Implementation</p>
+                </div>
+            </div>
+            <div class="header-badge">Pricing Guide</div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <!-- AUDIT -->
+            <div>
+                <div class="section-label">Start Here</div>
+                <div class="audit-card">
+                    <div class="audit-info">
+                        <h2>AI Automation Audit</h2>
+                        <div class="audit-features">
+                            <span>Comprehensive workflow analysis</span>
+                            <span>5-15 automation opportunities</span>
+                            <span>ROI estimates per opportunity</span>
+                            <span>Prioritized implementation roadmap</span>
+                            <span>1-hour report presentation</span>
+                            <span>Delivered in 1-2 weeks</span>
+                        </div>
+                    </div>
+                    <div class="audit-price-box">
+                        <div class="audit-price">$500</div>
+                        <div class="audit-credit">Credited toward implementation</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IMPLEMENTATION TIERS -->
+            <div>
+                <div class="section-label">Implementation Packages</div>
+                <div class="impl-grid">
+                    <!-- Basic -->
+                    <div class="impl-card">
+                        <div class="impl-header">
+                            <div class="impl-tier">Basic Installation</div>
+                            <div class="impl-price">$1,500</div>
+                            <div class="impl-price-note">one-time</div>
+                        </div>
+                        <div class="impl-body">
+                            <div class="impl-best">Best for: small teams getting started</div>
+                            <ul>
+                                <li>AI assistant installation on existing hardware or basic VPS</li>
+                                <li>1 messaging channel (WhatsApp, Telegram, or Slack)</li>
+                                <li>3 custom automations configured</li>
+                                <li>2-hour training session</li>
+                                <li>30-day email support</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Professional -->
+                    <div class="impl-card featured">
+                        <div class="impl-header">
+                            <div class="impl-tier">Professional</div>
+                            <div class="impl-price">$3,000</div>
+                            <div class="impl-price-note">one-time &middot; most popular</div>
+                        </div>
+                        <div class="impl-body">
+                            <div class="impl-best">Best for: growing businesses ready to scale</div>
+                            <ul>
+                                <li>Production-grade Docker installation</li>
+                                <li>Up to 3 messaging channels</li>
+                                <li>Gmail integration</li>
+                                <li>10 custom automations configured</li>
+                                <li>Browser automation setup</li>
+                                <li>4-hour training session</li>
+                                <li>60-day email + phone support</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Enterprise -->
+                    <div class="impl-card">
+                        <div class="impl-header">
+                            <div class="impl-tier">Enterprise</div>
+                            <div class="impl-price">$5,000+</div>
+                            <div class="impl-price-note">custom quote</div>
+                        </div>
+                        <div class="impl-body">
+                            <div class="impl-best">Best for: organizations needing full coverage</div>
+                            <ul>
+                                <li>Dedicated VPS setup & management</li>
+                                <li>All messaging channels</li>
+                                <li>Full email + calendar integration</li>
+                                <li>Unlimited custom automations</li>
+                                <li>Security hardening + audit</li>
+                                <li>8 hours of team training</li>
+                                <li>Custom skill development</li>
+                                <li>90-day full support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RETAINER TABLE -->
+            <div>
+                <div class="section-label">Monthly Support Retainers</div>
+                <table class="retainer-table">
+                    <thead>
+                        <tr>
+                            <th>Plan</th>
+                            <th>Monthly</th>
+                            <th>Support Hours</th>
+                            <th>What's Included</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="retainer-plan">Essentials</td>
+                            <td class="retainer-price">$250/mo</td>
+                            <td>2 hrs</td>
+                            <td>Monitoring, updates, email support</td>
+                        </tr>
+                        <tr>
+                            <td class="retainer-plan">Professional</td>
+                            <td class="retainer-price">$500/mo</td>
+                            <td>5 hrs</td>
+                            <td>New automation requests, priority response</td>
+                        </tr>
+                        <tr>
+                            <td class="retainer-plan">Premium</td>
+                            <td class="retainer-price">$1,000/mo</td>
+                            <td>10 hrs</td>
+                            <td>On-call availability, quarterly audit check-in</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- NOTES -->
+            <div class="notes">
+                <div class="note">
+                    <span class="note-icon">&#9679;</span>
+                    <span>The $500 audit fee is <strong>credited in full</strong> toward any implementation package — so if you proceed, the audit is effectively free.</span>
+                </div>
+                <div class="note">
+                    <span class="note-icon">&#9679;</span>
+                    <span><strong>Self-hosted AI</strong> means your data stays on your servers. No per-message fees, no third-party data sharing.</span>
+                </div>
+                <div class="note">
+                    <span class="note-icon">&#9679;</span>
+                    <span>Implementation costs do not include VPS hosting (~$5-12/mo from DigitalOcean). Local machine installs have no hosting cost.</span>
+                </div>
+                <div class="note">
+                    <span class="note-icon">&#9679;</span>
+                    <span>Enterprise quotes are custom based on scope. Contact us for a tailored proposal after your audit.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="footer-cta">
+                Start with the audit. <span>Book a free discovery call today.</span>
+            </div>
+            <div class="footer-contact">
+                <a href="https://calendly.com/john-njaiautomation/30min">calendly.com/john-njaiautomation</a><br>
+                john@njaiautomation.com &nbsp;|&nbsp; njaiautomation.com
+            </div>
+        </div>
+    </div>
+</body>
+</html>

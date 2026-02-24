@@ -1,0 +1,509 @@
+<!--
+  NJ AI Automation - One-Pager (Networking Leave-Behind)
+
+  Print-optimized single page. Open in Chrome → File → Print → Save as PDF
+  Check "Background graphics" for full color output.
+
+  Designed to fit on a single letter-size page (8.5" x 11").
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NJ AI Automation — AI Automation Audits for NJ Businesses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #10b981;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --white: #ffffff;
+        }
+
+        @page {
+            size: letter;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            color: var(--secondary);
+            background: var(--white);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            width: 8.5in;
+            min-height: 11in;
+            max-height: 11in;
+            margin: 0 auto;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 28px 40px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .header-logo svg {
+            width: 48px;
+            height: 48px;
+        }
+
+        .header-text h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .header-text p {
+            font-size: 0.75rem;
+            opacity: 0.85;
+            font-weight: 500;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 0.7rem;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        .header-right a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: var(--light);
+            padding: 24px 40px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .hero h2 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 6px;
+        }
+
+        .hero p {
+            font-size: 0.8rem;
+            color: var(--gray);
+            max-width: 600px;
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            display: flex;
+            gap: 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .stat {
+            flex: 1;
+            text-align: center;
+            padding: 16px 12px;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .stat:last-child { border-right: none; }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 0.65rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .content {
+            padding: 24px 40px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+
+        /* What We Do */
+        .what-list {
+            list-style: none;
+        }
+
+        .what-list li {
+            font-size: 0.75rem;
+            padding: 5px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.4;
+        }
+
+        .what-list li::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            min-width: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            margin-top: 5px;
+        }
+
+        .what-list .highlight {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Industries */
+        .industry-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px 16px;
+        }
+
+        .industry-item {
+            font-size: 0.72rem;
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--secondary);
+        }
+
+        .industry-icon {
+            font-size: 0.85rem;
+            width: 18px;
+            text-align: center;
+        }
+
+        /* How It Works */
+        .steps {
+            display: flex;
+            gap: 12px;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 12px 8px;
+            background: var(--light);
+            border-radius: 8px;
+        }
+
+        .step-number {
+            width: 26px;
+            height: 26px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .step-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 2px;
+        }
+
+        .step-desc {
+            font-size: 0.62rem;
+            color: var(--gray);
+            line-height: 1.3;
+        }
+
+        /* Pricing highlight */
+        .pricing-highlight {
+            background: var(--light);
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .pricing-left h3 {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        .pricing-left p {
+            font-size: 0.7rem;
+            color: var(--gray);
+            margin-top: 2px;
+        }
+
+        .pricing-right {
+            text-align: center;
+        }
+
+        .pricing-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .pricing-credit {
+            background: var(--accent);
+            color: white;
+            font-size: 0.58rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-top: 6px;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--secondary);
+            color: white;
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-cta {
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .footer-cta span {
+            color: #93c5fd;
+        }
+
+        .footer-contact {
+            text-align: right;
+            font-size: 0.68rem;
+            line-height: 1.7;
+            opacity: 0.85;
+        }
+
+        .footer-contact a {
+            color: #93c5fd;
+            text-decoration: none;
+        }
+
+        /* ===== PRINT ===== */
+        @media print {
+            body { background: white; }
+            .page {
+                width: 100%;
+                min-height: 100vh;
+                max-height: 100vh;
+            }
+        }
+
+        /* ===== SCREEN PREVIEW ===== */
+        @media screen {
+            body {
+                background: #e2e8f0;
+                padding: 20px;
+            }
+            .page {
+                box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+                border-radius: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-left">
+                <div class="header-logo">
+                    <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="300" height="300" fill="#2563eb" rx="40"/>
+                        <path d="M90 220 L150 60 L210 220" stroke="white" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        <line x1="110" y1="165" x2="190" y2="165" stroke="white" stroke-width="20" stroke-linecap="round"/>
+                        <circle cx="210" cy="80" r="24" fill="white"/>
+                        <line x1="180" y1="100" x2="195" y2="85" stroke="white" stroke-width="8" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="header-text">
+                    <h1>NJ AI Automation</h1>
+                    <p>AI Automation Audits & Implementation</p>
+                </div>
+            </div>
+            <div class="header-right">
+                john@njaiautomation.com<br>
+                <a href="https://njaiautomation.com">njaiautomation.com</a><br>
+                New Jersey
+            </div>
+        </div>
+
+        <!-- HERO -->
+        <div class="hero">
+            <h2>Your Business Has Automation Opportunities Hiding in Plain Sight</h2>
+            <p>We find exactly where AI can save your team 20+ hours a week — with a structured audit backed by data, ROI estimates, and a clear implementation roadmap.</p>
+        </div>
+
+        <!-- STATS BAR -->
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-number">5-15</div>
+                <div class="stat-label">Opportunities Identified</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Hours Saved / Week</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">1-2</div>
+                <div class="stat-label">Week Turnaround</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">$500</div>
+                <div class="stat-label">Credited Toward Implementation</div>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="content">
+            <!-- Two columns: What We Do + Industries -->
+            <div class="two-col">
+                <div>
+                    <div class="section-title">What We Do</div>
+                    <ul class="what-list">
+                        <li><span><span class="highlight">AI Automation Audit</span> — We analyze your workflows, communication, scheduling, and admin processes to find every automation opportunity</span></li>
+                        <li><span><span class="highlight">ROI-Backed Report</span> — Each opportunity includes hours saved per week, estimated cost savings, and implementation difficulty</span></li>
+                        <li><span><span class="highlight">Implementation Roadmap</span> — Prioritized action plan from quick wins to advanced automations</span></li>
+                        <li><span><span class="highlight">Full Implementation</span> — We build and deploy the automations using self-hosted, private AI (no per-message fees, your data stays yours)</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="section-title">Industries We Serve</div>
+                    <div class="industry-grid">
+                        <div class="industry-item"><span class="industry-icon">📣</span> Marketing Agencies</div>
+                        <div class="industry-item"><span class="industry-icon">⚡</span> Electricians & Contractors</div>
+                        <div class="industry-item"><span class="industry-icon">🏗️</span> Construction Companies</div>
+                        <div class="industry-item"><span class="industry-icon">📊</span> Accounting Firms</div>
+                        <div class="industry-item"><span class="industry-icon">🏠</span> Real Estate Agencies</div>
+                        <div class="industry-item"><span class="industry-icon">🛒</span> E-Commerce Businesses</div>
+                    </div>
+                    <div style="margin-top: 12px; padding: 8px 12px; background: #eff6ff; border-radius: 6px; border-left: 3px solid var(--primary);">
+                        <div style="font-size: 0.68rem; color: var(--secondary); line-height: 1.4;">
+                            <strong>NJ businesses with 10-75 employees</strong> — the sweet spot where automation creates the biggest impact.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How It Works -->
+            <div>
+                <div class="section-title">How It Works</div>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Discovery Call</div>
+                        <div class="step-desc">Free 30-min call to understand your business</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Audit</div>
+                        <div class="step-desc">2-3 hours observing workflows + team interviews</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Report</div>
+                        <div class="step-desc">Written report with findings, ROI, and roadmap</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-title">Implement</div>
+                        <div class="step-desc">We build the automations. You save 20+ hours/week</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Highlight -->
+            <div class="pricing-highlight">
+                <div class="pricing-left">
+                    <h3>AI Automation Audit</h3>
+                    <p>Comprehensive workflow analysis, 5-15 identified opportunities, ROI estimates, and a prioritized implementation roadmap. Delivered in 1-2 weeks.</p>
+                </div>
+                <div class="pricing-right">
+                    <div class="pricing-amount">$500</div>
+                    <div class="pricing-credit">Credited toward implementation</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="footer-cta">
+                Ready to find your automation opportunities? <span>Book a free discovery call.</span>
+            </div>
+            <div class="footer-contact">
+                <a href="https://calendly.com/john-njaiautomation/30min">calendly.com/john-njaiautomation</a><br>
+                john@njaiautomation.com &nbsp;|&nbsp; njaiautomation.com
+            </div>
+        </div>
+    </div>
+</body>
+</html>
