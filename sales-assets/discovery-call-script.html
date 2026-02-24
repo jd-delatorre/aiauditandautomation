@@ -1,0 +1,704 @@
+<!--
+  NJ AI Automation - Discovery Call Script
+  INTERNAL DOCUMENT — Not client-facing
+
+  Use this during initial calls with prospects.
+  Click section headers to expand/collapse.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discovery Call Script | NJ AI Automation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #10b981;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--secondary);
+            background: var(--light);
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: var(--secondary);
+            color: white;
+            padding: 24px 32px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .header-title svg { width: 36px; height: 36px; }
+
+        .header-title h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .header-badge {
+            background: rgba(255,255,255,0.1);
+            padding: 4px 14px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #94a3b8;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 32px;
+        }
+
+        /* ===== SECTION ACCORDION ===== */
+        .script-section {
+            background: var(--white);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .section-trigger {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            text-align: left;
+            transition: background 0.2s;
+        }
+
+        .section-trigger:hover { background: var(--light); }
+
+        .section-trigger-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .section-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .section-number.green { background: var(--accent); }
+        .section-number.blue { background: var(--primary); }
+        .section-number.purple { background: #8b5cf6; }
+        .section-number.amber { background: #f59e0b; }
+        .section-number.red { background: #ef4444; }
+        .section-number.teal { background: #14b8a6; }
+        .section-number.slate { background: #475569; }
+
+        .section-trigger h2 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .section-duration {
+            font-size: 0.75rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .section-chevron {
+            transition: transform 0.3s ease;
+            color: var(--gray);
+            flex-shrink: 0;
+        }
+
+        .script-section.active .section-chevron {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+
+        .section-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .script-section.active .section-body {
+            max-height: 5000px;
+        }
+
+        .section-content {
+            padding: 0 24px 24px;
+        }
+
+        /* ===== SCRIPT LINE ===== */
+        .script-line {
+            background: #eff6ff;
+            border-left: 3px solid var(--primary);
+            padding: 14px 18px;
+            border-radius: 0 10px 10px 0;
+            margin: 16px 0;
+            font-style: italic;
+            color: #1e40af;
+            font-size: 0.95rem;
+        }
+
+        /* ===== QUESTION CATEGORY ===== */
+        .question-category {
+            margin: 20px 0;
+        }
+
+        .category-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .question-list { list-style: none; }
+
+        .question-list li {
+            padding: 10px 0 10px 24px;
+            position: relative;
+            border-bottom: 1px solid #f1f5f9;
+            color: #374151;
+            font-size: 0.95rem;
+        }
+
+        .question-list li:last-child { border-bottom: none; }
+
+        .question-list li::before {
+            content: "?";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        /* ===== OBJECTION PAIR ===== */
+        .objection {
+            background: var(--light);
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin: 16px 0;
+            overflow: hidden;
+        }
+
+        .objection-header {
+            background: #fef2f2;
+            padding: 12px 18px;
+            font-weight: 700;
+            color: #991b1b;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #fecaca;
+        }
+
+        .objection-response {
+            padding: 16px 18px;
+            color: #374151;
+            font-size: 0.9rem;
+        }
+
+        .objection-response strong { color: var(--accent); }
+
+        /* ===== KEY POINTS BOX ===== */
+        .key-points {
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .key-points-title {
+            font-weight: 700;
+            color: #059669;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .key-points ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .key-points li {
+            padding: 6px 0 6px 24px;
+            position: relative;
+            color: #374151;
+            font-size: 0.9rem;
+        }
+
+        .key-points li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* ===== CHECKLIST ===== */
+        .checklist { list-style: none; margin: 16px 0; }
+
+        .checklist li {
+            padding: 10px 0 10px 32px;
+            position: relative;
+            border-bottom: 1px solid #e2e8f0;
+            color: #374151;
+            font-size: 0.9rem;
+        }
+
+        .checklist li:last-child { border-bottom: none; }
+
+        .checklist li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #cbd5e1;
+            border-radius: 4px;
+        }
+
+        /* ===== CLOSE SCRIPTS ===== */
+        .close-card {
+            border-radius: 12px;
+            padding: 18px;
+            margin: 12px 0;
+        }
+
+        .close-card--hot {
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+        }
+
+        .close-card--warm {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+        }
+
+        .close-card--cold {
+            background: var(--light);
+            border: 1px solid #e2e8f0;
+        }
+
+        .close-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .close-card--hot .close-label { color: #059669; }
+        .close-card--warm .close-label { color: #d97706; }
+        .close-card--cold .close-label { color: var(--gray); }
+
+        p { margin-bottom: 12px; color: #374151; }
+
+        /* ===== PRINT ===== */
+        @media print {
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            @page { size: letter; margin: 0.5in; }
+
+            .header { position: relative; }
+
+            .script-section { break-inside: avoid; }
+
+            .section-body { max-height: none !important; }
+
+            .section-chevron { display: none; }
+
+            .objection,
+            .close-card,
+            .key-points,
+            .script-line {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <div class="header">
+        <div class="header-inner">
+            <div class="header-title">
+                <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="300" height="300" fill="#2563eb" rx="40"/>
+                    <path d="M90 220 L150 60 L210 220" stroke="white" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <line x1="110" y1="165" x2="190" y2="165" stroke="white" stroke-width="20" stroke-linecap="round"/>
+                    <circle cx="210" cy="80" r="24" fill="white"/>
+                    <line x1="180" y1="100" x2="195" y2="85" stroke="white" stroke-width="8" stroke-linecap="round"/>
+                </svg>
+                <h1>Discovery Call Script</h1>
+            </div>
+            <span class="header-badge">Internal Document</span>
+        </div>
+    </div>
+
+    <!-- ===== MAIN ===== -->
+    <div class="main">
+
+        <!-- SECTION 1: OPENING -->
+        <div class="script-section active">
+            <button class="section-trigger">
+                <div class="section-trigger-left">
+                    <span class="section-number green">1</span>
+                    <div>
+                        <h2>Opening / Rapport Building</h2>
+                        <span class="section-duration">2-3 minutes</span>
+                    </div>
+                </div>
+                <svg class="section-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="section-body">
+                <div class="section-content">
+                    <div class="script-line">
+                        "Hi [Name], thanks for taking the time today. I really appreciate it. Before we dive in, I'd love to learn a little more about you and [Company] — how long have you been running the business?"
+                    </div>
+
+                    <p><strong>Rapport questions</strong> (pick 2-3, keep it natural):</p>
+                    <ul class="question-list">
+                        <li>How did you hear about us?</li>
+                        <li>How long have you been running the business?</li>
+                        <li>What's been keeping you busy lately?</li>
+                        <li>How big is the team right now?</li>
+                    </ul>
+
+                    <div class="script-line">
+                        "That's great — thanks for sharing. I'd love to learn more about how things work day-to-day at [Company] so I can understand where there might be some automation opportunities. Mind if I ask a few questions?"
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: DISCOVERY QUESTIONS -->
+        <div class="script-section">
+            <button class="section-trigger">
+                <div class="section-trigger-left">
+                    <span class="section-number blue">2</span>
+                    <div>
+                        <h2>Discovery Questions</h2>
+                        <span class="section-duration">10-15 minutes</span>
+                    </div>
+                </div>
+                <svg class="section-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="section-body">
+                <div class="section-content">
+
+                    <div class="question-category">
+                        <div class="category-title">Operations &amp; Workflow</div>
+                        <ul class="question-list">
+                            <li>Walk me through a typical day at your business. What does the morning look like?</li>
+                            <li>What tasks eat up the most time for you or your team?</li>
+                            <li>What do you wish you could automate but haven't figured out how?</li>
+                            <li>How many people handle administrative or repetitive work?</li>
+                        </ul>
+                    </div>
+
+                    <div class="question-category">
+                        <div class="category-title">Communication</div>
+                        <ul class="question-list">
+                            <li>How do customers typically reach you? (phone, email, text, WhatsApp, social?)</li>
+                            <li>What's your average response time to a new lead or inquiry?</li>
+                            <li>Do you have after-hours coverage? What happens to messages that come in at night?</li>
+                            <li>How much time does your team spend answering the same questions over and over?</li>
+                        </ul>
+                    </div>
+
+                    <div class="question-category">
+                        <div class="category-title">Scheduling</div>
+                        <ul class="question-list">
+                            <li>How are appointments or meetings currently booked?</li>
+                            <li>How do you handle reminders and follow-ups?</li>
+                            <li>How often do no-shows happen? What's your process for handling them?</li>
+                        </ul>
+                    </div>
+
+                    <div class="question-category">
+                        <div class="category-title">Pain Points</div>
+                        <ul class="question-list">
+                            <li>What's the one thing that frustrates you most about your current operations?</li>
+                            <li>Where do things fall through the cracks?</li>
+                            <li>Have you lost clients or revenue because of slow response times or missed follow-ups?</li>
+                        </ul>
+                    </div>
+
+                    <div class="question-category">
+                        <div class="category-title">AI Familiarity</div>
+                        <ul class="question-list">
+                            <li>Have you used any AI tools? (ChatGPT, Copilot, etc.)</li>
+                            <li>What's your impression of AI for business — excited, skeptical, overwhelmed?</li>
+                            <li>Have you looked into automation before? What stopped you from moving forward?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: QUALIFYING -->
+        <div class="script-section">
+            <button class="section-trigger">
+                <div class="section-trigger-left">
+                    <span class="section-number purple">3</span>
+                    <div>
+                        <h2>Qualifying Questions</h2>
+                        <span class="section-duration">5 minutes</span>
+                    </div>
+                </div>
+                <svg class="section-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="section-body">
+                <div class="section-content">
+                    <ul class="question-list">
+                        <li><strong>Company size:</strong> "How many employees do you have total?"</li>
+                        <li><strong>Decision-making:</strong> "Are you the person who would approve a project like this, or is there someone else involved in that decision?"</li>
+                        <li><strong>Budget:</strong> "Have you set aside a budget for improving operations or technology this year?"</li>
+                        <li><strong>Timeline:</strong> "Is this something you'd want to move on soon, or more of a future consideration?"</li>
+                        <li><strong>Commitment:</strong> "If the audit identifies real savings, would you be open to implementing the recommendations?"</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: AUDIT PITCH -->
+        <div class="script-section">
+            <button class="section-trigger">
+                <div class="section-trigger-left">
+                    <span class="section-number amber">4</span>
+                    <div>
+                        <h2>Audit Pitch</h2>
+                        <span class="section-duration">5 minutes</span>
+                    </div>
+                </div>
+                <svg class="section-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="section-body">
+                <div class="section-content">
+                    <div class="script-line">
+                        "Based on what you've shared, I think there are some real opportunities here. Let me tell you about what we do..."
+                    </div>
+
+                    <div class="script-line">
+                        "We do something called an AI Automation Audit. We spend 2-3 hours observing how your team works — either on-site or over Zoom — and interview your key people about their daily routines and pain points. Then we go away for a few days and come back with a written report that identifies 5 to 15 specific automation opportunities in your business — each one with estimated hours saved and ROI numbers, so you know exactly what you're leaving on the table."
+                    </div>
+
+                    <div class="script-line">
+                        "The investment is $500, and here's the best part — if you decide to move forward with implementation, that $500 is credited in full toward the project. So the audit is effectively free. And if you don't move forward, you still keep the report. No obligation."
+                    </div>
+
+                    <div class="key-points">
+                        <div class="key-points-title">Key Talking Points</div>
+                        <ul>
+                            <li>2-3 hours of your team's time, that's it</li>
+                            <li>Written report with 5-15 specific opportunities</li>
+                            <li>ROI estimates for each — real numbers, not guesses</li>
+                            <li>$500 — credited if you proceed with implementation</li>
+                            <li>1-2 weeks from kickoff to final report</li>
+                            <li>No obligation to proceed — you keep the report regardless</li>
+                            <li>Everything runs on YOUR servers — data stays private</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: OBJECTION HANDLING -->
+        <div class="script-section">
+            <button class="section-trigger">
+                <div class="section-trigger-left">
+                    <span class="section-number red">5</span>
+                    <div>
+                        <h2>Objection Handling</h2>
+                        <span class="section-duration">As needed</span>
+                    </div>
+                </div>
+                <svg class="section-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="section-body">
+                <div class="section-content">
+
+                    <div class="objection">
+                        <div class="objection-header">"$500 is expensive for an assessment"</div>
+                        <div class="objection-response">
+                            <p>"I understand. The way to think about it: if the audit identifies even one opportunity that saves you 5 hours a week, that's worth <strong>tens of thousands per year</strong>. Plus, the $500 is credited in full if you proceed with implementation — making the audit effectively free. It's the lowest-risk way to find out what AI can actually do for your business."</p>
+                        </div>
+                    </div>
+
+                    <div class="objection">
+                        <div class="objection-header">"We're not ready for AI yet"</div>
+                        <div class="objection-response">
+                            <p>"That's actually the best time to do the audit. It's not about implementing AI tomorrow — it's about <strong>understanding where the opportunities are</strong> so you can plan. Think of it like getting an energy audit on your building. You learn what's possible, then decide when to act. The report gives you a roadmap you can execute on your own timeline."</p>
+                        </div>
+                    </div>
+
+                    <div class="objection">
+                        <div class="objection-header">"We tried AI tools before and they didn't work"</div>
+                        <div class="objection-response">
+                            <p>"I hear that a lot. Usually it's because there was <strong>no structured assessment</strong> of where AI actually fits. Most businesses try ChatGPT for a week and give up. What we do is different — we identify the specific workflows where automation has the highest impact, then build <strong>custom solutions</strong> for those workflows. Not generic chatbots."</p>
+                        </div>
+                    </div>
+
+                    <div class="objection">
+                        <div class="objection-header">"Can you just tell me what to automate?"</div>
+                        <div class="objection-response">
+                            <p>"I wish I could, but every business is different. What works for one marketing agency doesn't necessarily work for another. The audit process — <strong>observing your actual workflows, talking to your team</strong> — is what surfaces the real opportunities. The ones that actually save meaningful time. That's the value of the audit."</p>
+                        </div>
+                    </div>
+
+                    <div class="objection">
+                        <div class="objection-header">"I need to think about it"</div>
+                        <div class="objection-response">
+                            <p>"Of course, take the time you need. A few things that might help: the audit fee is <strong>credited toward implementation</strong>, there's <strong>no obligation</strong> to proceed after, and the sooner we identify the opportunities, the sooner you stop leaving time and money on the table. I'll send you a proposal with all the details — when would be a good time to follow up?"</p>
+                        </div>
+                    </div>
+
+                    <div class="objection">
+                        <div class="objection-header">"We're too small for this kind of thing"</div>
+                        <div class="objection-response">
+                            <p>"Businesses with 10-20 people are actually where we see the <strong>biggest impact per person</strong>. You don't have a large operations team to absorb inefficiency — every hour saved directly hits your bottom line. One of our typical findings saves 20+ hours per week. For a small team, that's transformative."</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 6: CLOSE -->
+        <div class="script-section">
+            <button class="section-trigger">
+                <div class="section-trigger-left">
+                    <span class="section-number teal">6</span>
+                    <div>
+                        <h2>Close / Next Steps</h2>
+                        <span class="section-duration">2-3 minutes</span>
+                    </div>
+                </div>
+                <svg class="section-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="section-body">
+                <div class="section-content">
+
+                    <div class="close-card close-card--hot">
+                        <div class="close-label">If Interested (Hot Lead)</div>
+                        <div class="script-line">
+                            "Great — I'll send over a proposal today with all the details. If everything looks good, we can get the kickoff call on the calendar for as early as next week. Does that work?"
+                        </div>
+                    </div>
+
+                    <div class="close-card close-card--warm">
+                        <div class="close-label">If Hesitant (Warm Lead)</div>
+                        <div class="script-line">
+                            "No problem at all. Let me send you the proposal so you can review it at your pace. I'll include everything we discussed — the process, deliverables, and pricing. Can I follow up with you on [day, 3-5 days out]?"
+                        </div>
+                    </div>
+
+                    <div class="close-card close-card--cold">
+                        <div class="close-label">If Not a Fit (Cold Lead)</div>
+                        <div class="script-line">
+                            "I appreciate your time today, [Name]. Even if the timing isn't right, feel free to reach out if things change. I'll send you some information about what we do in case it's useful down the road."
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 20px;"><strong>Calendly link to share:</strong><br>
+                    <a href="https://calendly.com/john-njaiautomation/30min" style="color: var(--primary);">calendly.com/john-njaiautomation/30min</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 7: POST-CALL CHECKLIST -->
+        <div class="script-section">
+            <button class="section-trigger">
+                <div class="section-trigger-left">
+                    <span class="section-number slate">7</span>
+                    <div>
+                        <h2>Post-Call Checklist</h2>
+                        <span class="section-duration">After the call</span>
+                    </div>
+                </div>
+                <svg class="section-chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="section-body">
+                <div class="section-content">
+                    <ul class="checklist">
+                        <li>Log the call — company name, contact, date, key notes</li>
+                        <li>Rate the lead — Hot / Warm / Cold</li>
+                        <li>Send follow-up email within 1 hour</li>
+                        <li>If interested: Send audit proposal PDF (audit-proposal.html)</li>
+                        <li>If hesitant: Add to follow-up sequence (3-day, 7-day, 14-day)</li>
+                        <li>Schedule follow-up in calendar (3 days for hot, 1 week for warm)</li>
+                        <li>Note industry-specific pain points for future marketing content</li>
+                        <li>Update prospect status in pipeline</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Accordion toggle
+        document.querySelectorAll('.section-trigger').forEach(button => {
+            button.addEventListener('click', () => {
+                const section = button.closest('.script-section');
+                section.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

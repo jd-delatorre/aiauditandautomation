@@ -1,0 +1,580 @@
+<!--
+  NJ AI Automation - Audit Proposal Template
+
+  PLACEHOLDERS (Find & Replace before sending to prospect):
+  {{CLIENT_NAME}}    - Prospect company name (e.g., "ABC Electric")
+  {{CONTACT_NAME}}   - Primary contact name (e.g., "Mike Johnson")
+  {{DATE}}           - Proposal date (e.g., "March 3, 2026")
+  {{VALID_UNTIL}}    - Proposal expiration (e.g., "April 2, 2026")
+
+  INSTRUCTIONS:
+  1. Find & replace all {{PLACEHOLDERS}} with prospect-specific data
+  2. Open in Chrome → File → Print → Save as PDF (check "Background graphics")
+  3. Email the PDF to the prospect after the discovery call
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Automation Audit Proposal — {{CLIENT_NAME}} | NJ AI Automation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #10b981;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--secondary);
+            background: var(--white);
+        }
+
+        /* ===== COVER PAGE ===== */
+        .cover-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 40px;
+            color: white;
+            position: relative;
+        }
+
+        .cover-logo svg { width: 80px; height: 80px; }
+
+        .cover-logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-top: 16px;
+            margin-bottom: 60px;
+        }
+
+        .cover-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .cover-subtitle {
+            font-size: 1.5rem;
+            opacity: 0.85;
+            margin-bottom: 8px;
+        }
+
+        .cover-date {
+            font-size: 1.125rem;
+            opacity: 0.6;
+        }
+
+        .cover-footer {
+            position: absolute;
+            bottom: 40px;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* ===== PAGE SECTIONS ===== */
+        .page-section {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        .section-label {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--secondary);
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+            margin-bottom: 24px;
+        }
+
+        p { margin-bottom: 16px; color: #374151; }
+        h3 { font-size: 1.15rem; font-weight: 700; margin: 28px 0 12px; color: var(--secondary); }
+
+        /* ===== CHECKLIST ===== */
+        .checklist { list-style: none; margin: 20px 0; }
+        .checklist li {
+            padding: 10px 0 10px 32px;
+            position: relative;
+            color: #374151;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .checklist li:last-child { border-bottom: none; }
+        .checklist li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* ===== ANALYZE GRID ===== */
+        .analyze-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .analyze-item {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 16px 20px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .analyze-icon { font-size: 1.5rem; margin-bottom: 8px; }
+        .analyze-item h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+        .analyze-item p { font-size: 0.8rem; color: var(--gray); margin: 0; }
+
+        /* ===== PROCESS STEPS ===== */
+        .process-steps { margin: 24px 0; }
+
+        .process-step {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .process-step:last-child { border-bottom: none; }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+        }
+
+        .step-content h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+        .step-content p { font-size: 0.9rem; color: var(--gray); margin: 0; }
+        .step-duration {
+            display: inline-block;
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 2px 10px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        /* ===== INVESTMENT HIGHLIGHT ===== */
+        .investment-box {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            color: white;
+            margin: 24px 0;
+        }
+
+        .investment-price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin: 8px 0;
+        }
+
+        .investment-credit {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent);
+            padding: 6px 18px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .investment-note {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* ===== IMPLEMENTATION TIERS ===== */
+        .tiers-label {
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 32px 0 16px;
+        }
+
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .tier-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .tier-card h4 { font-size: 0.85rem; margin-bottom: 4px; }
+        .tier-price { font-size: 1.25rem; font-weight: 800; color: var(--primary); }
+        .tier-card p { font-size: 0.7rem; color: var(--gray); margin: 4px 0 0; }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 16px;
+            padding: 36px;
+            text-align: center;
+            color: white;
+            margin: 32px 0;
+        }
+
+        .cta-section h3 { color: white; font-size: 1.35rem; margin: 0 0 8px; }
+        .cta-section p { color: rgba(255,255,255,0.85); margin-bottom: 16px; }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            background: white;
+            color: var(--primary);
+        }
+
+        /* ===== ABOUT ===== */
+        .about-card {
+            display: flex;
+            gap: 24px;
+            background: var(--light);
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid #e2e8f0;
+            margin: 24px 0;
+        }
+
+        .about-icon { font-size: 2.5rem; flex-shrink: 0; }
+
+        .about-card h4 { font-size: 1rem; margin-bottom: 4px; }
+        .about-card p { font-size: 0.9rem; color: var(--gray); margin: 0; }
+
+        /* ===== TERMS ===== */
+        .terms {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .terms h3 { font-size: 1rem; margin-bottom: 16px; }
+
+        .terms-item {
+            margin-bottom: 16px;
+        }
+
+        .terms-item strong {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--secondary);
+            margin-bottom: 2px;
+        }
+
+        .terms-item p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        .page-footer {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.75rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* ===== PRINT ===== */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            @page { size: letter; margin: 0.75in; }
+
+            .page-break { page-break-before: always; }
+            .no-break { page-break-inside: avoid; }
+
+            .cover-page {
+                min-height: 0;
+                height: 100vh;
+                page-break-after: always;
+                margin: -0.75in;
+                padding: 60px;
+            }
+
+            .page-section { padding: 40px 0; }
+
+            a { text-decoration: none; color: inherit; }
+            .btn { border: 2px solid white; }
+
+            .investment-box,
+            .cta-section,
+            .about-card,
+            .process-step,
+            .analyze-item,
+            .tier-card {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== COVER PAGE ==================== -->
+    <div class="cover-page">
+        <div class="cover-logo">
+            <svg width="80" height="80" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                <rect width="300" height="300" fill="rgba(255,255,255,0.2)" rx="40"/>
+                <path d="M90 220 L150 60 L210 220" stroke="white" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <line x1="110" y1="165" x2="190" y2="165" stroke="white" stroke-width="20" stroke-linecap="round"/>
+                <circle cx="210" cy="80" r="24" fill="white"/>
+                <line x1="180" y1="100" x2="195" y2="85" stroke="white" stroke-width="8" stroke-linecap="round"/>
+            </svg>
+            <div class="cover-logo-text">NJAIAutomation</div>
+        </div>
+        <div class="cover-title">AI Automation<br>Audit Proposal</div>
+        <div class="cover-subtitle">Prepared for {{CLIENT_NAME}}</div>
+        <div class="cover-date">{{DATE}}</div>
+        <div class="cover-footer">NJ AI Automation &bull; john@njaiautomation.com</div>
+    </div>
+
+    <!-- ==================== INTRODUCTION ==================== -->
+    <div class="page-section page-break">
+        <p class="section-label">Proposal</p>
+        <h2 class="section-title">What is the AI Automation Audit?</h2>
+        <div class="section-divider"></div>
+
+        <p>Dear {{CONTACT_NAME}},</p>
+
+        <p>Thank you for your interest in exploring what AI can do for {{CLIENT_NAME}}. This proposal outlines our <strong>AI Automation Audit</strong> — a comprehensive assessment of your business operations designed to identify exactly where AI and automation can save you time, reduce errors, and increase capacity.</p>
+
+        <p>Every business has automation opportunities hiding in plain sight. The challenge is knowing where to look. Our audit provides a structured, data-driven answer — not opinions, not guesses, but specific opportunities with estimated ROI.</p>
+
+        <h3>What We Analyze</h3>
+        <div class="analyze-grid">
+            <div class="analyze-item no-break">
+                <div class="analyze-icon">💬</div>
+                <h4>Communication</h4>
+                <p>Customer inquiries, response times, and follow-up patterns</p>
+            </div>
+            <div class="analyze-item no-break">
+                <div class="analyze-icon">📅</div>
+                <h4>Scheduling</h4>
+                <p>Appointment booking, reminders, and no-show handling</p>
+            </div>
+            <div class="analyze-item no-break">
+                <div class="analyze-icon">📧</div>
+                <h4>Email &amp; Docs</h4>
+                <p>Email triage, document requests, and reporting workflows</p>
+            </div>
+            <div class="analyze-item no-break">
+                <div class="analyze-icon">📋</div>
+                <h4>Admin Tasks</h4>
+                <p>Repetitive manual processes, data entry, and form handling</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== DELIVERABLES ==================== -->
+    <div class="page-section page-break">
+        <p class="section-label">Deliverables</p>
+        <h2 class="section-title">What You'll Receive</h2>
+        <div class="section-divider"></div>
+
+        <p>At the end of the audit, you receive a <strong>written AI Automation Audit Report</strong> containing:</p>
+
+        <ul class="checklist">
+            <li><strong>5-15 specific automation opportunities</strong> identified in your business</li>
+            <li><strong>Estimated hours saved per week</strong> for each opportunity</li>
+            <li><strong>ROI estimates and cost savings</strong> based on your operations</li>
+            <li><strong>Difficulty ratings</strong> (Easy / Medium / Complex) for each</li>
+            <li><strong>Prioritized implementation roadmap</strong> — what to tackle first</li>
+            <li><strong>Technology recommendations</strong> tailored to your business</li>
+            <li><strong>1-hour report presentation</strong> with Q&amp;A session</li>
+        </ul>
+
+        <p>The report is yours to keep regardless of whether you proceed with implementation. It serves as a strategic roadmap that any qualified team could execute.</p>
+
+        <h3>The Process</h3>
+        <div class="process-steps">
+            <div class="process-step no-break">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Kickoff Call</h4>
+                    <p>We discuss your business, set the audit scope, and identify the workflows to analyze.</p>
+                    <span class="step-duration">30 minutes</span>
+                </div>
+            </div>
+            <div class="process-step no-break">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Observation &amp; Interviews</h4>
+                    <p>On-site or via Zoom — we watch how your team works and interview key staff about pain points and daily routines.</p>
+                    <span class="step-duration">2-3 hours</span>
+                </div>
+            </div>
+            <div class="process-step no-break">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Analysis &amp; Report Creation</h4>
+                    <p>We review our findings, calculate ROI estimates, and build your prioritized automation roadmap.</p>
+                    <span class="step-duration">3-5 business days</span>
+                </div>
+            </div>
+            <div class="process-step no-break">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Report Presentation &amp; Q&amp;A</h4>
+                    <p>We present the findings, walk through each recommendation, and answer your questions.</p>
+                    <span class="step-duration">1 hour</span>
+                </div>
+            </div>
+        </div>
+
+        <p style="text-align: center; color: var(--gray); font-weight: 600; margin-top: 24px;">Total timeline: 1-2 weeks from kickoff to final report</p>
+    </div>
+
+    <!-- ==================== INVESTMENT ==================== -->
+    <div class="page-section page-break">
+        <p class="section-label">Investment</p>
+        <h2 class="section-title">Pricing</h2>
+        <div class="section-divider"></div>
+
+        <div class="investment-box no-break">
+            <span class="investment-credit">$500 credited toward implementation</span>
+            <h3 style="color: white; font-size: 1.25rem; margin: 0 0 4px;">AI Automation Audit</h3>
+            <div class="investment-price">$500</div>
+            <p class="investment-note">One-time fee — credited in full if you proceed with implementation</p>
+        </div>
+
+        <p>The audit investment is <strong>$500</strong>. If you choose to proceed with implementation, this fee is <strong>credited in full</strong> toward any implementation package — effectively making the audit free.</p>
+
+        <p class="tiers-label">Implementation Packages (Post-Audit)</p>
+        <div class="tiers-grid">
+            <div class="tier-card no-break">
+                <h4>Basic</h4>
+                <div class="tier-price">$1,500</div>
+                <p>3 automations, 1 channel, 30-day support</p>
+            </div>
+            <div class="tier-card no-break" style="border-color: var(--primary);">
+                <h4>Professional</h4>
+                <div class="tier-price">$3,000</div>
+                <p>10 automations, 3 channels, 60-day support</p>
+            </div>
+            <div class="tier-card no-break">
+                <h4>Enterprise</h4>
+                <div class="tier-price">$5,000+</div>
+                <p>Unlimited automations, all channels, 90-day support</p>
+            </div>
+        </div>
+
+        <h3>About NJ AI Automation</h3>
+        <div class="about-card no-break">
+            <div class="about-icon">🤖</div>
+            <div>
+                <h4>John De La Torre — NJ AI Automation</h4>
+                <p>We help New Jersey businesses discover and implement AI-powered automation. Our solutions run on <strong>your infrastructure</strong> — your data stays private, there are no per-message fees, and you own everything we build. Local to NJ with in-person or remote options.</p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section no-break">
+            <h3>Ready to Proceed?</h3>
+            <p>Schedule your kickoff call and we'll begin the audit within the week.</p>
+            <a href="https://calendly.com/john-njaiautomation/30min" class="btn" target="_blank">Schedule Kickoff Call</a>
+            <p style="margin-top: 12px; font-size: 0.85rem; opacity: 0.7;">Or email: john@njaiautomation.com</p>
+        </div>
+
+        <!-- TERMS -->
+        <div class="terms">
+            <h3>Terms</h3>
+            <div class="terms-item">
+                <strong>Scope</strong>
+                <p>The audit covers an assessment of business workflows, communication channels, and repetitive tasks. Deliverable is a written AI Automation Audit Report with identified opportunities and recommendations.</p>
+            </div>
+            <div class="terms-item">
+                <strong>Payment</strong>
+                <p>$500 due upon agreement to proceed. Payment accepted via Stripe (credit card or ACH).</p>
+            </div>
+            <div class="terms-item">
+                <strong>Audit Credit</strong>
+                <p>The full $500 audit fee is credited toward any implementation package purchased within 90 days of report delivery.</p>
+            </div>
+            <div class="terms-item">
+                <strong>Confidentiality</strong>
+                <p>All information gathered during the audit is treated as strictly confidential and will not be shared with third parties.</p>
+            </div>
+            <div class="terms-item">
+                <strong>No Obligation</strong>
+                <p>The audit fee stands alone. There is no obligation to proceed with implementation. You keep the report and roadmap regardless.</p>
+            </div>
+            <div class="terms-item">
+                <strong>Validity</strong>
+                <p>This proposal is valid until {{VALID_UNTIL}}.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <div class="page-footer">
+        <p>NJ AI Automation &bull; john@njaiautomation.com &bull; New Jersey &bull; njaiautomation.com</p>
+    </div>
+
+</body>
+</html>

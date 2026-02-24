@@ -68,16 +68,22 @@ All tasks completed on February 23, 2026.
 ## Phase 3: Sales Assets (Week 2-3)
 
 ### Audit Deliverables
-- [ ] Create AI Automation Audit report template (branded PDF):
-  - Cover page (NJ AI Automation branding, client name, date)
-  - Executive summary of key findings
-  - Current state assessment
-  - 5-15 automation opportunities with ROI estimates
-  - Technology recommendations
-  - Prioritized implementation roadmap
-  - Investment summary
-- [ ] Create audit proposal template (what the client receives before agreeing)
-- [ ] Write discovery call script reframed around the audit offering
+- [x] Create AI Automation Audit report template — `sales-assets/audit-report.html` (completed Feb 23, 2026)
+  - Cover page, TOC, executive summary, current state assessment
+  - Automation opportunities table + detailed cards with ROI/difficulty/priority badges
+  - Technology recommendations, implementation roadmap, investment summary
+  - Appendix with methodology, glossary, disclaimer
+  - Print-optimized with page breaks, {{PLACEHOLDER}} tokens for client data
+  - Sample data: fictional marketing agency ("Garden State Marketing Group")
+- [x] Create audit proposal template — `sales-assets/audit-proposal.html` (completed Feb 23, 2026)
+  - Cover page, audit explanation, deliverables, process timeline
+  - Investment ($500 with credit), implementation tier summary, terms
+  - Print-optimized, {{PLACEHOLDER}} tokens
+- [x] Write discovery call script — `sales-assets/discovery-call-script.html` (completed Feb 23, 2026)
+  - Collapsible accordion sections for quick scanning during calls
+  - Opening/rapport, discovery questions (5 categories), qualifying questions
+  - Audit pitch with key talking points, 6 objection handlers
+  - Close scripts (hot/warm/cold), post-call checklist
 
 ### Contracts
 - [ ] Draft service agreement for audit engagements:
