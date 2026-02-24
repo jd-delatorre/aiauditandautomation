@@ -142,6 +142,18 @@ All tasks completed on February 23, 2026.
 
 ## Phase 5: Outreach & Launch (Week 4+)
 
+### Social Media Content
+- [x] Create marketing campaign tone & voice guide — `marketing/marketing.md` (completed Feb 23, 2026)
+  - Brand voice descriptors, do's/don'ts, example phrases
+  - 7 content pillars, hashtag strategy, platform guidelines
+  - CTA variations, key statistics reference
+- [x] Create 30-day X/Twitter content calendar — `marketing/x-twitter-30-days.md` (completed Feb 23, 2026)
+  - 30 posts (1/day), under 280 chars each, 2-3 hashtags per post
+  - Mix: problem awareness, industry spotlights, how it works, privacy, NJ focus, transparency, stats
+- [x] Create 30-day Facebook content calendar — `marketing/facebook-30-days.md` (completed Feb 23, 2026)
+  - 30 posts (1/day), 3-6 sentences each, 3-5 hashtags per post
+  - Longer narrative format with suggested visuals, same content mix as Twitter
+
 ### LinkedIn Presence
 - [ ] Create LinkedIn business page
 - [ ] Optimize John's LinkedIn profile — position as AI automation auditor
@@ -192,4 +204,4 @@ All tasks completed on February 23, 2026.
 ---
 
 *Created: February 2026*
-*Last updated: February 23, 2026 (marketing materials added)*
+*Last updated: February 23, 2026 (social media content calendars added)*
