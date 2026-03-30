@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NJ AI Automation — 6×4 Postcard</title>
+  <style>
+    /* Print setup: 6" × 4" at 96dpi = 576px × 384px */
+    /* For print at 300dpi: 1800px × 1200px — scale as needed */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: #1a1a2e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .label {
+      color: #888;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: -30px;
+    }
+
+    /* ─── POSTCARD WRAPPER ─────────────────────────── */
+    /* 6"×4" at 96dpi screen = 576×384px */
+    .postcard {
+      width: 576px;
+      height: 384px;
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    /* ══════════════════════════════════════════════════
+       FRONT SIDE
+    ══════════════════════════════════════════════════ */
+    .front {
+      background: #0f172a;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top accent bar */
+    .front-accent {
+      height: 5px;
+      background: linear-gradient(90deg, #3b82f6, #06b6d4, #10b981);
+    }
+
+    /* Main content area */
+    .front-body {
+      flex: 1;
+      display: flex;
+      align-items: stretch;
+    }
+
+    /* Left: copy */
+    .front-copy {
+      flex: 1;
+      padding: 28px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .front-eyebrow {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #3b82f6;
+      margin-bottom: 10px;
+    }
+
+    .front-headline {
+      font-size: 26px;
+      font-weight: 900;
+      line-height: 1.15;
+      color: #f8fafc;
+    }
+
+    .front-headline span {
+      color: #3b82f6;
+    }
+
+    .front-sub {
+      font-size: 12px;
+      font-weight: 400;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin-top: 10px;
+    }
+
+    .front-cta-block {
+      margin-top: 16px;
+    }
+
+    .cta-pill {
+      display: inline-block;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 8px 16px;
+      border-radius: 100px;
+    }
+
+    .cta-sub {
+      font-size: 9px;
+      color: #64748b;
+      margin-top: 6px;
+    }
+
+    /* Right: visual panel */
+    .front-visual {
+      width: 190px;
+      background: linear-gradient(160deg, #1e3a5f 0%, #0f172a 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 20px;
+      border-left: 1px solid #1e3a5f;
+    }
+
+    .stat-card {
+      background: rgba(59,130,246,0.12);
+      border: 1px solid rgba(59,130,246,0.3);
+      border-radius: 8px;
+      padding: 10px 14px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .stat-num {
+      font-size: 22px;
+      font-weight: 900;
+      color: #3b82f6;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 8.5px;
+      font-weight: 500;
+      color: #94a3b8;
+      margin-top: 3px;
+      line-height: 1.3;
+    }
+
+    /* Bottom branding strip */
+    .front-footer {
+      background: #0a0f1e;
+      padding: 8px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #1e293b;
+    }
+
+    .brand-name {
+      font-size: 11px;
+      font-weight: 700;
+      color: #f8fafc;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-name span {
+      color: #3b82f6;
+    }
+
+    .front-url {
+      font-size: 9.5px;
+      color: #3b82f6;
+      font-weight: 500;
+    }
+
+    /* ══════════════════════════════════════════════════
+       BACK SIDE
+    ══════════════════════════════════════════════════ */
+    .back {
+      background: #ffffff;
+      display: flex;
+    }
+
+    /* Left content block */
+    .back-left {
+      flex: 1;
+      background: #0f172a;
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .back-logo {
+      font-size: 12px;
+      font-weight: 800;
+      color: #f8fafc;
+      letter-spacing: 0.3px;
+    }
+
+    .back-logo span {
+      color: #3b82f6;
+    }
+
+    .back-headline {
+      font-size: 16px;
+      font-weight: 800;
+      color: #f8fafc;
+      line-height: 1.25;
+      margin-top: 10px;
+    }
+
+    .back-headline em {
+      color: #3b82f6;
+      font-style: normal;
+    }
+
+    .back-desc {
+      font-size: 9.5px;
+      color: #94a3b8;
+      line-height: 1.55;
+      margin-top: 8px;
+    }
+
+    .back-bullets {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .bullet {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .bullet-dot {
+      width: 14px;
+      height: 14px;
+      background: rgba(59,130,246,0.15);
+      border: 1px solid #3b82f6;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.5px;
+    }
+
+    .bullet-dot svg {
+      width: 7px;
+      height: 7px;
+      stroke: #3b82f6;
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    .bullet-text {
+      font-size: 9.5px;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+
+    .bullet-text strong {
+      color: #f8fafc;
+      font-weight: 600;
+    }
+
+    /* Right: mailing/contact panel */
+    .back-right {
+      width: 220px;
+      background: #fff;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .indicia-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      padding: 6px 8px;
+      text-align: center;
+      align-self: flex-end;
+      width: 72px;
+    }
+
+    .indicia-text {
+      font-size: 7px;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    .return-address {
+      margin-top: 8px;
+    }
+
+    .return-address p {
+      font-size: 8px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    .to-address {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 16px 0;
+    }
+
+    .address-lines {
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 6px;
+      margin-bottom: 6px;
+    }
+
+    .address-line {
+      width: 100%;
+      height: 1px;
+      background: #e2e8f0;
+      margin-bottom: 10px;
+    }
+
+    /* QR placeholder + contact */
+    .contact-block {
+      display: flex;
+      gap: 8px;
+      align-items: flex-end;
+    }
+
+    .qr-placeholder {
+      width: 52px;
+      height: 52px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .qr-placeholder svg {
+      width: 36px;
+      height: 36px;
+      opacity: 0.25;
+    }
+
+    .contact-details {
+      flex: 1;
+    }
+
+    .contact-details p {
+      font-size: 8px;
+      color: #475569;
+      line-height: 1.7;
+    }
+
+    .contact-details .highlight {
+      color: #0f172a;
+      font-weight: 700;
+      font-size: 9px;
+    }
+
+    .cta-back {
+      background: #0f172a;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      text-align: center;
+      padding: 7px;
+      border-radius: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    .cta-back span {
+      color: #3b82f6;
+    }
+  </style>
+</head>
+<body>
+
+  <p class="label">Front Side</p>
+
+  <!-- ══════════ FRONT ══════════ -->
+  <div class="postcard front">
+    <div class="front-accent"></div>
+
+    <div class="front-body">
+      <!-- Copy -->
+      <div class="front-copy">
+        <div>
+          <p class="front-eyebrow">New Jersey AI Automation</p>
+          <h1 class="front-headline">
+            Your business is<br>
+            leaking <span>20+ hours</span><br>
+            every week.
+          </h1>
+          <p class="front-sub">
+            We'll show you exactly where — and put<br>
+            a dollar amount on it. In two weeks.
+          </p>
+        </div>
+
+        <div class="front-cta-block" style="display:flex;align-items:center;gap:14px;">
+          <div style="width:64px;height:64px;background:#1e293b;border:1.5px solid #3b82f6;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="44" height="44" opacity="0.4">
+              <rect x="3" y="3" width="7" height="7" rx="1" stroke="#3b82f6" stroke-width="1.5"/>
+              <rect x="14" y="3" width="7" height="7" rx="1" stroke="#3b82f6" stroke-width="1.5"/>
+              <rect x="3" y="14" width="7" height="7" rx="1" stroke="#3b82f6" stroke-width="1.5"/>
+              <rect x="5" y="5" width="3" height="3" fill="#3b82f6"/>
+              <rect x="16" y="5" width="3" height="3" fill="#3b82f6"/>
+              <rect x="5" y="16" width="3" height="3" fill="#3b82f6"/>
+              <rect x="14" y="14" width="3" height="3" fill="#3b82f6"/>
+              <rect x="18" y="14" width="3" height="3" fill="#3b82f6"/>
+              <rect x="14" y="18" width="3" height="3" fill="#3b82f6"/>
+              <rect x="18" y="18" width="3" height="3" fill="#3b82f6"/>
+            </svg>
+          </div>
+          <div>
+            <p style="font-size:10px;font-weight:700;color:#f8fafc;line-height:1.3;">Book a Free 30-Min<br>Discovery Call</p>
+            <p class="cta-sub" style="margin-top:4px;">No commitment. No tech jargon.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual stats panel -->
+      <div class="front-visual">
+        <div class="stat-card">
+          <div class="stat-num">5–15</div>
+          <div class="stat-label">Automation opportunities<br>found per audit</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Hours saved per week<br>(typical result)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">$500</div>
+          <div class="stat-label">Full audit — credited<br>toward implementation</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="front-footer">
+      <span class="brand-name"><span>NJ</span> AI Automation</span>
+      <span class="front-url">njaiautomation.com</span>
+    </div>
+  </div>
+
+
+  <p class="label">Back Side</p>
+
+  <!-- ══════════ BACK ══════════ -->
+  <div class="postcard back">
+
+    <!-- Left: offer details -->
+    <div class="back-left">
+      <div>
+        <div class="back-logo"><span>NJ</span> AI Automation</div>
+
+        <h2 class="back-headline">
+          The <em>AI Automation Audit</em><br>finds the hours hiding<br>in your business.
+        </h2>
+
+        <p class="back-desc">
+          We analyze your workflows, communications, and daily tasks — then deliver a written report with 5–15 specific automation opportunities, each with an ROI estimate.
+        </p>
+
+        <div class="back-bullets">
+          <div class="bullet">
+            <div class="bullet-dot">
+              <svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3"/></svg>
+            </div>
+            <p class="bullet-text"><strong>Written report</strong> with every opportunity ranked by impact</p>
+          </div>
+          <div class="bullet">
+            <div class="bullet-dot">
+              <svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3"/></svg>
+            </div>
+            <p class="bullet-text"><strong>Real ROI numbers</strong> — hours saved, dollars recovered</p>
+          </div>
+          <div class="bullet">
+            <div class="bullet-dot">
+              <svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3"/></svg>
+            </div>
+            <p class="bullet-text"><strong>Your data stays yours</strong> — self-hosted, no per-message fees</p>
+          </div>
+          <div class="bullet">
+            <div class="bullet-dot">
+              <svg viewBox="0 0 10 10"><polyline points="2,5 4,7 8,3"/></svg>
+            </div>
+            <p class="bullet-text"><strong>In-person available</strong> — we're local NJ, not a call center</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right: mailing panel -->
+    <div class="back-right">
+      <!-- Top row: indicia -->
+      <div style="display:flex; justify-content:flex-end;">
+        <div class="indicia-box">
+          <p class="indicia-text">PRESORTED<br>STANDARD<br>U.S. POSTAGE<br>PAID<br>PERMIT #___</p>
+        </div>
+      </div>
+
+      <!-- Return address -->
+      <div class="return-address">
+        <p>NJ AI Automation<br>
+        [Your Street Address]<br>
+        [City, NJ  ZIP]</p>
+      </div>
+
+      <!-- To address lines -->
+      <div class="to-address">
+        <div class="address-line"></div>
+        <div class="address-line"></div>
+        <div class="address-line"></div>
+        <div class="address-line" style="margin-bottom:0;"></div>
+      </div>
+
+      <!-- Contact + QR -->
+      <div class="contact-block">
+        <div class="qr-placeholder">
+          <!-- QR code placeholder icon -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="7" height="7" rx="1" stroke="#000" stroke-width="1.5"/>
+            <rect x="14" y="3" width="7" height="7" rx="1" stroke="#000" stroke-width="1.5"/>
+            <rect x="3" y="14" width="7" height="7" rx="1" stroke="#000" stroke-width="1.5"/>
+            <rect x="5" y="5" width="3" height="3" fill="#000"/>
+            <rect x="16" y="5" width="3" height="3" fill="#000"/>
+            <rect x="5" y="16" width="3" height="3" fill="#000"/>
+            <rect x="14" y="14" width="3" height="3" fill="#000"/>
+            <rect x="18" y="14" width="3" height="3" fill="#000"/>
+            <rect x="14" y="18" width="3" height="3" fill="#000"/>
+            <rect x="18" y="18" width="3" height="3" fill="#000"/>
+          </svg>
+        </div>
+        <div class="contact-details">
+          <p class="highlight">njaiautomation.com</p>
+          <p>[your@email.com]</p>
+          <p>[(XXX) XXX-XXXX]</p>
+          <p>Serving NJ businesses</p>
+        </div>
+      </div>
+
+      <div class="cta-back">
+        Scan to book your <span>free call</span> →
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Design notes -->
+  <div style="max-width:576px; color:#64748b; font-size:11px; line-height:1.7; font-family:monospace; padding:16px; background:#0a0f1e; border-radius:8px; width:100%;">
+    <p style="color:#94a3b8; margin-bottom:8px;">── PRINT SPECS ────────────────────────────────</p>
+    <p>Size: 6" × 4"  |  300 DPI = 1800 × 1200 px</p>
+    <p>Bleed: +0.125" on all sides (add bleed in print file)</p>
+    <p>Safe zone: Keep text 0.125" inside trim edge</p>
+    <p>Color mode: CMYK (convert before sending to printer)</p>
+    <p>Paper: 16pt cardstock, UV gloss front recommended</p>
+    <p style="margin-top:8px; color:#94a3b8;">── BEFORE PRINTING ────────────────────────────</p>
+    <p>1. Add real QR code linking to njaiautomation.com/book</p>
+    <p>2. Fill in return address, phone, email</p>
+    <p>3. Add USPS permit number (if bulk mailing)</p>
+    <p>4. Export front/back as separate PDF files at 300dpi</p>
+    <p style="margin-top:8px; color:#94a3b8;">── MAILING LIST IDEAS ──────────────────────────</p>
+    <p>• USPS Every Door Direct Mail (EDDM) by ZIP code</p>
+    <p>• Purchase B2B list filtered by: NJ, 10-75 employees,</p>
+    <p>  SIC codes for target industries</p>
+    <p>• Send to your own warm contact list first</p>
+  </div>
+
+</body>
+</html>

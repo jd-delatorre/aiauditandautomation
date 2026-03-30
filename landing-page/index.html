@@ -1055,6 +1055,175 @@
             }
         }
 
+        /* Event Section */
+        .event {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+        }
+
+        .event .section-label {
+            color: var(--accent);
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 24px;
+            border: 2px solid var(--accent);
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.12);
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .event-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 40px 48px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .event-date-badge {
+            flex-shrink: 0;
+            background: var(--accent);
+            color: white;
+            border-radius: 16px;
+            padding: 16px 24px;
+            text-align: center;
+            min-width: 90px;
+        }
+
+        .event-date-badge .month {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+
+        .event-date-badge .day {
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .event-title-block h3 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .event-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .event-meta span {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .event-body {
+            padding: 40px 48px;
+        }
+
+        .event-agenda {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 36px;
+        }
+
+        .agenda-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .agenda-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .agenda-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 4px;
+        }
+
+        .agenda-item p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .event-cta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-top: 32px;
+            border-top: 1px solid #e2e8f0;
+            flex-wrap: wrap;
+        }
+
+        .btn-event {
+            background: var(--accent);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-event:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.35);
+        }
+
+        .event-free-badge {
+            background: #f0fdf4;
+            color: #059669;
+            border: 1px solid #bbf7d0;
+            border-radius: 100px;
+            padding: 8px 18px;
+            font-size: 0.875rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .event-header {
+                flex-direction: column;
+                padding: 32px 24px;
+                text-align: center;
+                align-items: center;
+            }
+
+            .event-meta {
+                justify-content: center;
+            }
+
+            .event-body {
+                padding: 32px 24px;
+            }
+
+            .event-cta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
         /* Extra small screens */
         @media (max-width: 400px) {
             .nav-container {
@@ -1126,6 +1295,77 @@
             </div>
         </div>
     </section>
+
+    <!-- Free Online Event Section -->
+    <!-- <section class="event" id="event">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Free Online Event</p>
+                <h2>See AI Automation Live — Before You Commit to Anything</h2>
+                <p>Join us for a free 1-hour online session. We'll show you real AI automations in action, break down the ROI by industry, and answer every question you have.</p>
+            </div>
+
+            <div class="event-card">
+                <div class="event-header">
+                    <div class="event-date-badge">
+                        <div class="month">APR</div>
+                        <div class="day">4</div>
+                    </div>
+                    <div class="event-title-block">
+                        <h3>AI in Action for NJ Businesses</h3>
+                        <div class="event-meta">
+                            <span>🕐 Friday, April 4th &bull; 1:00 PM EST</span>
+                            <span>💻 Online (Zoom)</span>
+                            <span>⏱ 60 minutes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-body">
+                    <div class="event-agenda">
+                        <div class="agenda-item">
+                            <div class="agenda-icon">🎯</div>
+                            <div>
+                                <h4>What We Cover</h4>
+                                <p>Where AI saves businesses 20+ hours/week — by industry</p>
+                            </div>
+                        </div>
+                        <div class="agenda-item">
+                            <div class="agenda-icon">🤖</div>
+                            <div>
+                                <h4>Live Demos</h4>
+                                <p>Watch real automations run: email triage, appointment booking, 24/7 inquiry response</p>
+                            </div>
+                        </div>
+                        <div class="agenda-item">
+                            <div class="agenda-icon">💰</div>
+                            <div>
+                                <h4>The ROI Numbers</h4>
+                                <p>Real hour and dollar estimates across marketing, trades, real estate, legal &amp; more</p>
+                            </div>
+                        </div>
+                        <div class="agenda-item">
+                            <div class="agenda-icon">❓</div>
+                            <div>
+                                <h4>Open Q&amp;A</h4>
+                                <p>Ask anything — no pitch, no pressure, just straight answers</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event-cta">
+                        <a href="https://lu.ma/njaiautomation-apr4" class="btn-event" target="_blank">
+                            Reserve Your Spot — It's Free
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <span class="event-free-badge">100% Free &bull; No Sales Pitch</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
 
     <!-- Problem Section -->
     <section class="problem">
@@ -1374,10 +1614,11 @@
 
             <!-- Audit Pricing Highlight -->
             <div class="audit-pricing">
-                <span class="audit-credit-badge">$500 credited toward implementation</span>
-                <h3>AI Automation Audit</h3>
-                <div class="price">$500</div>
-                <div class="price-note">One-time fee — credited if you proceed with implementation</div>
+                <span class="audit-credit-badge">$500 value — yours free</span>
+                <h3>Free AI Automation Audit</h3>
+                <div class="price" style="text-decoration: line-through; color: #64748b; font-size: 2rem;">$500</div>
+                <div class="price" style="margin-top: -10px;">FREE</div>
+                <div class="price-note">($500 value) — no cost, no obligation</div>
                 <ul class="audit-pricing-features">
                     <li>Comprehensive workflow and operations review</li>
                     <li>On-site or Zoom observation (2-3 hours)</li>
